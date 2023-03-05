@@ -21,8 +21,7 @@ expected = pa.DataFrameSchema(
 
 @pa.check_output(expected)
 def processing_fn(df):
-    processed = df.assign(val3=df.val1 / df.val2)
-    return processed
+    return df.assign(val3=df.val1 / df.val2)
 
 
 @hypothesis.given(schema.strategy(size=5))

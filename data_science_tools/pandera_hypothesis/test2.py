@@ -4,8 +4,7 @@ from pandas.testing import assert_frame_equal
 
 
 def processing_fn(df):
-    processed = df.assign(val3=df.val1 / df.val2)
-    return processed
+    return df.assign(val3=df.val1 / df.val2)
 
 
 val1 = [[1, 1, -1, -2, 2], [1, 1, -1, -2, 2]]

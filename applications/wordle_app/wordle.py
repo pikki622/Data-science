@@ -50,7 +50,6 @@ def on_key_press(char):
     if len(session_local.curr_word) == WORD_LEN:  # submit a word guess
         if not is_word(session_local.curr_word):
             toast("Not in word list!", color="error")
-            session_local.curr_word = ""
             for i in range(WORD_LEN):
                 with use_scope(f"s-{session_local.curr_row}-{i}", clear=True):
                     put_text(" ", inline=True)
@@ -90,8 +89,7 @@ def on_key_press(char):
                 session_local.game_pass = True
 
             session_local.curr_row += 1
-            session_local.curr_word = ""
-
+        session_local.curr_word = ""
         if session_local.game_pass:
             message = (
                 f"Wordle {session_local.curr_row}/{MAX_TRY}\n"
